@@ -1,0 +1,4 @@
+# Bỏ qua thư mục chứa các thư viện tải về
+node_modules/
+# Bỏ qua file chứa biến môi trường nhạy cảm
+.env
