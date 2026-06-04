@@ -14,6 +14,11 @@ app.use(express.json());
 // Secret key để ký JWT (Trong thực tế nên đưa vào file .env)
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_dev_only';
 
+// Hiển thị dòng chữ ra giao diện web khi truy cập vào đường dẫn gốc
+app.get('/', (req, res) => {
+    res.send(' Server đang chạy ... !! ');
+});
+
 // Trùng khớp với đường dẫn $baseUrl/v1/login trên Flutter
 app.post('/v1/login', (req, res) => {
     const { email, password } = req.body;
@@ -50,4 +55,5 @@ app.post('/v1/login', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`FitPulse API đang chạy tại port ${PORT}`);
+    console.log(' Server đang chạy ... !! ');
 });
