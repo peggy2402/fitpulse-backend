@@ -51,6 +51,15 @@ app.post('/v1/login', (req, res) => {
     }
 });
 
+// API Đăng xuất
+app.post('/v1/logout', (req, res) => {
+    // Với JWT, việc đăng xuất chính nằm ở việc Client tự xóa token.
+    // Endpoint này trả về thông báo thành công để Client biết và thực hiện xóa token.
+    return res.status(200).json({
+        message: 'Đăng xuất thành công. Vui lòng xóa token trên thiết bị!'
+    });
+});
+
 // Cấu hình Port cho Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
